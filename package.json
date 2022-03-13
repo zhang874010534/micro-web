@@ -1,0 +1,19 @@
+{
+  "name": "micro-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./build/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhang874010534/micro-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhang874010534/micro-web/issues"
+  },
+  "homepage": "https://github.com/zhang874010534/micro-web#readme"
+}
