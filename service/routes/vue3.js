@@ -8,4 +8,7 @@ router.get('/car', async (ctx) => {
         title: 1234
     }
 })
+router.post('/car', async (ctx) => {
+    console.log(ctx.request.post)
+})
 module.exports = router
