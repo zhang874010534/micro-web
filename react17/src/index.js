@@ -5,12 +5,28 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import BasicMap from './router';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <BasicMap />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const render = () => {
+    ReactDOM.render(
+        <React.StrictMode>
+            <BasicMap />
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+}
+if(!window.__MICRO_WEB__) {
+    render()
+}
+export const bootstrap = () => {
+    console.log('bootstrap')
+}
+
+export const mounted = () => {
+    render()
+}
+
+export const unmount = () => {
+    console.log('unmount')
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
