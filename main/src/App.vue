@@ -4,9 +4,8 @@
     <Header></Header>
 <!--    微前端 container-->
     <div id="micro-container"></div>
-    <router-link to="/">Home</router-link>
-    <router-link to="/about">About</router-link>
-
+    <span @click="navigatorTo('/vue3#/')">vue3</span>
+    <span @click="navigatorTo('/react17#/')">react17</span>
   </nav>
   <router-view/>
 </template>
@@ -16,6 +15,18 @@ import Header from '@/components/Header.vue'
 export default defineComponent({
   components: {
     Header: Header
+  },
+  data() {
+    return {
+
+    }
+  },
+  created() {
+  },
+  methods: {
+    navigatorTo(url) {
+      window.history.pushState('', '', url)
+    }
   }
 })
 </script>

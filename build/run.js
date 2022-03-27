@@ -15,13 +15,13 @@ const filePath = {
 
 function runChild() {
 	let portShell = ''
-	if (os.type() == 'Windows_NT') {
+	if (os.type() === 'Windows_NT') {
 		// windows
 		portShell = `set`
-	} else if (os.type() == 'Darwin') {
+	} else if (os.type() === 'Darwin') {
 		//mac
 		portShell = ``
-	} else if (os.type() == 'Linux') {
+	} else if (os.type() === 'Linux') {
 		//Linux
 	} else{
 		//不支持提示

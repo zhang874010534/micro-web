@@ -1,4 +1,5 @@
-import {registerMicroApps} from '../../micro'
+import {registerMicroApps, start} from '../../micro'
 export const registerApp = (list) => {
     registerMicroApps(list)
+    start()
 }

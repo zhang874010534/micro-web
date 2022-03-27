@@ -16,7 +16,7 @@
       "webpack-env"
     ],
     "typeRoots": [
-      "src/custom_types"
+      "../custom_types"
     ],
     "paths": {
       "@/*": [
