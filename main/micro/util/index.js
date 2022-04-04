@@ -15,13 +15,27 @@ export const currentApp = () => {
     return filterApp('activeRule', currentUrl)
 }
 
+export const findAppByRoute = (router) => {
+    return filterApp('activeRule', router)
+}
+
 const filterApp = (key, value) => {
     const currentApp = getList().filter(item => item[key] === value)
     return currentApp && currentApp.length ? currentApp[0] : {}
 }
 
+
 // 子应用是否做了切换
 export const  isTurnChild = () => {
-    return window.__CURRENT_SUB_APP__ !== window.location.pathname;
+    window.__ORIGIN_APP__ = window.__CURRENT_SUB_APP__
+    if(window.__CURRENT_SUB_APP__ === window.location.pathname) {
+        return false
+    }
+    const currentApp = window.location.pathname.match(/(\/\w+)/)
+    if(!currentApp) {
+        return false
+    }
+    window.__CURRENT_SUB_APP__ = currentApp[0]
+    return true
 
 }
