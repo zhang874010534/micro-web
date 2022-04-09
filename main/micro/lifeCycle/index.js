@@ -1,18 +1,18 @@
 import {findAppByRoute} from "../util";
 import {getMainLifeCycle} from "../const/mainLifeCycle";
+import {loadHtml} from "../loader";
 export const lifeCycle = async () => {
   // 获取到上一个子应用
   const prevApp = findAppByRoute(window.__ORIGIN_APP__)
   // 获取到要跳转到的子应用
   const nextApp = findAppByRoute(window.__CURRENT_SUB_APP__)
-  console.log(prevApp,nextApp,'app')
+  // console.log(prevApp,nextApp,'app')
   if(!nextApp) {
     return
   }
   if(prevApp && prevApp.destroyed) {
     await destroyed(prevApp)
   }
-
   const app = await beforeLoad(nextApp)
 
   await mounted(app)
@@ -20,14 +20,16 @@ export const lifeCycle = async () => {
 
 export const beforeLoad = async (app) => {
   await runMainLiftCycle('beforeLoad')
+
   app && app.beforeLoad && app.beforeLoad()
 
-  const appContext = null
-  return appContext
+  const subApp = await loadHtml(app)
+  subApp && subApp.beforeLoad && subApp.beforeLoad()
+  return subApp
 }
 
 export const mounted = async (app) => {
-  app && app.mounted()
+  app && app.mounted && app.mounted()
 
   await runMainLiftCycle('mounted')
 }

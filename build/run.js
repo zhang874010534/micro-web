@@ -6,11 +6,12 @@ function joinPath(name) {
 	return path.join(__dirname, '../' + name);
 }
 const filePath = {
-	vue2: joinPath('vue2'),
+	main: joinPath('main'),
+	// vue2: joinPath('vue2'),
 	vue3: joinPath('vue3'),
 	react17: joinPath('react17'),
 	// 'react15': joinPath('react15'),
-	service: joinPath('service'),
+	// service: joinPath('service'),
 };
 
 function runChild() {
