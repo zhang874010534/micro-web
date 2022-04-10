@@ -20,7 +20,7 @@ export const bootstrap = () => {
     console.log('bootstrap')
 }
 
-export const mounted = () => {
+export const mount = () => {
     render()
 }
 

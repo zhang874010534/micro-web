@@ -2,10 +2,11 @@
   <nav>
     <div>主应用</div>
     <Header></Header>
+    <button @click="navigatorTo('/vue3#/')">vue3</button>
+    <button @click="navigatorTo('/react17#/')">react17</button>
 <!--    微前端 container-->
     <div id="micro-container"></div>
-    <span @click="navigatorTo('/vue3#/')">vue3</span>
-    <span @click="navigatorTo('/react17#/')">react17</span>
+
   </nav>
   <router-view/>
 </template>

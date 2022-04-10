@@ -1,20 +1,25 @@
 import {fetchResource} from "../util/fetchResource";
-
+import {performScriptForEval} from "../sandbox/performScript";
+import {sandbox} from "../sandbox";
 
 // 加载html的方法
 export const loadHtml = async (app) => {
+  window.__MICRO_WEB__ = true
   // 第一个子应用需要显示在哪里
   let container = app.container
   // 子应用入口
   let entry = app.entry
 
-  const html = await parseHtml(entry)
-
+  const [dom, script] = await parseHtml(entry)
+  console.log(dom,script)
   const ct = document.querySelector(container)
   if(!ct) {
     throw new Error('容器不存在，请查看')
   }
-  ct.innerHTML = html
+  ct.innerHTML = dom
+  script.forEach(item => {
+    sandbox(app, item)
+  })
   return app
 }
 
@@ -26,7 +31,6 @@ export const parseHtml = async (entry) => {
   div.innerHTML = html
   // 标签、link、script
   const [dom, scriptUrl, script] = await getResources(div, entry)
-  console.log(dom, scriptUrl, script)
   const fetchedScripts = await Promise.all(scriptUrl.map(async item => await fetchResource(item)))
   allScripts = script.concat(fetchedScripts)
   return [dom, allScripts]

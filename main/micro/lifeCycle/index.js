@@ -29,13 +29,13 @@ export const beforeLoad = async (app) => {
 }
 
 export const mounted = async (app) => {
-  app && app.mounted && app.mounted()
+  app && app.mount && app.mount()
 
   await runMainLiftCycle('mounted')
 }
 
 export const destroyed = async (app) => {
-  app && app.destroyed && app.destroyed()
+  app && app.unmount && app.unmount()
   // 对应的执行以下主应用的生命周期
   await runMainLiftCycle('destroyed')
 }
