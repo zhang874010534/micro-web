@@ -6,7 +6,6 @@ import store from './store'
 let instance:any = null
 const render = () => {
     instance = createApp(App)
-    console.log(instance)
     instance.use(store).use(router).mount('#vue3-app')
 }
 // render()
@@ -22,6 +21,7 @@ export const bootstrap = () => {
 
 export const mount = () => {
     render()
+    window.a = 1
     console.log('渲染成功')
 }
 

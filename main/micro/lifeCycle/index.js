@@ -11,6 +11,9 @@ export const lifeCycle = async () => {
     return
   }
   if(prevApp && prevApp.destroyed) {
+    if(prevApp.proxy) {
+      prevApp.proxy.inactive()
+    }
     await destroyed(prevApp)
   }
   const app = await beforeLoad(nextApp)

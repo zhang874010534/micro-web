@@ -11,7 +11,6 @@ export const loadHtml = async (app) => {
   let entry = app.entry
 
   const [dom, script] = await parseHtml(entry)
-  console.log(dom,script)
   const ct = document.querySelector(container)
   if(!ct) {
     throw new Error('容器不存在，请查看')

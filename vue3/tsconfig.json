@@ -16,7 +16,7 @@
       "webpack-env"
     ],
     "typeRoots": [
-      "./src/ global.d.ts"
+      "./src/global.d.ts"
     ],
     "paths": {
       "@/*": [
