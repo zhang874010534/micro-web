@@ -1,5 +1,5 @@
 // 快照沙箱
-
+// 应用场景： 比较老版本的浏览器
 export class SnapShotSandbox {
   constructor() {
     // 1.代理对象
