@@ -21,7 +21,6 @@ export const bootstrap = () => {
 
 export const mount = () => {
     render()
-    window.a = 1
     console.log('渲染成功')
 }
 

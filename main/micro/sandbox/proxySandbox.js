@@ -1,22 +1,30 @@
 // 代理沙箱
 
-const defaultValue = {} // 子应用的沙箱容器
+let defaultValue = {} // 子应用的沙箱容器
 
-class ProxySandbox {
+export class ProxySandbox {
   constructor() {
     this.proxy = null
+    this.active()
   }
   // 沙箱激活
   active() {
+    // 子应用需要设置属性
     this.proxy = new Proxy(window, {
-      get() {},
+      get(target,key) {
+        if(typeof target[key] === 'function') {
+          return target[key].bind(target)
+        }
+        return defaultValue[key] || target[key]
+      },
       set(target,key,value) {
         defaultValue[key] = value
+
       }
     })
   }
   // 沙箱销毁
   inactive() {
-
+    defaultValue = {}
   }
 }
