@@ -7,16 +7,17 @@ export const performScriptForFunction = (script, appName, global) => {
       return window['${appName}']
     })(window.proxy)
   `
-  return new Function(scriptText)
+  return new Function(scriptText)()
 }
 
 export const performScriptForEval = (script, appName, global) => {
   // library window.appName
+  window.proxy = global
   const scriptText = `
-    () => {
+    ((window) => {
       ${script}
       return window['${appName}']
-    }
+    })(window.proxy)
   `
   return eval(scriptText).call(global, global)
 }
