@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+// @ts-ignore
+import { setMain } from "./utils/main";
 
 let instance:any = null
 const render = () => {
@@ -19,7 +21,10 @@ export const bootstrap = () => {
     console.log('开始加载')
 }
 
-export const mount = () => {
+export const mount = (app: any) => {
+    // app.appInfo.header.changeHeader(false)
+    window.custom.emit('test','emitTest')
+    setMain(app)
     render()
     console.log('渲染成功')
 }
