@@ -11,7 +11,7 @@ export const subNavList = [
         name: 'vue2',
         activeRule: '/vue2',
         container: '#micro-container',
-        entry: '//localhost:9004',
+        entry: '//localhost:9094',
         appInfo: appInfo
     },
     {

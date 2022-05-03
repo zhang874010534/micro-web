@@ -7,7 +7,7 @@ function joinPath(name) {
 }
 const filePath = {
 	main: joinPath('main'),
-	// vue2: joinPath('vue2'),
+	vue2: joinPath('vue2'),
 	vue3: joinPath('vue3'),
 	react17: joinPath('react17'),
 	// 'react15': joinPath('react15'),

@@ -3,6 +3,7 @@
     <div>主应用</div>
     <Header v-show="headerStatus"></Header>
     <button @click="navigatorTo('/vue3#/')">vue3</button>
+    <button @click="navigatorTo('/vue2#/')">vue2</button>
     <button @click="navigatorTo('/react17#/')">react17</button>
     <!--    微前端 container-->
     <div id="micro-container"></div>

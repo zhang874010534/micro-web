@@ -22,8 +22,16 @@ export const bootstrap = () => {
 }
 
 export const mount = (app: any) => {
+    // window.custom.on('test1',(data:any) => {
+    //     console.log(data,'test11111')
+    // })
+    const storeData = window.store.getStore()
+    window.store.update({
+        ...storeData,
+        a: 1
+    })
     // app.appInfo.header.changeHeader(false)
-    window.custom.emit('test','emitTest')
+    // window.custom.emit('test','emitTest')
     setMain(app)
     render()
     console.log('渲染成功')

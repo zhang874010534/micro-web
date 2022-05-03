@@ -23,8 +23,12 @@ export const boot = () => {
 }
 
 export const mount = () => {
+  console.log('vue2')
+  window.custom.emit('test1',{
+    name: 'vue2触发'
+  })
   render()
-  console.log('渲染成功')
+  console.log('渲染成功111')
 }
 
 export const unmount = () => {

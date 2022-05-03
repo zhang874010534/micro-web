@@ -18,12 +18,14 @@ module.exports = defineConfig({
             directory: path.join(__dirname, 'dist')
         },
         hot: true,
+        open: true,
         // disableHostCheck: true,
         allowedHosts: 'all',
         port,
         headers: {
             'Access-Control-Allow-Origin': '*'
-        }
+        },
+        host: 'localhost'
     },
     configureWebpack: {
         resolve: {
