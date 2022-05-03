@@ -10,7 +10,7 @@ export const loadHtml = async (app) => {
   // 子应用入口
   let entry = app.entry
 
-  const [dom, script] = await parseHtml(entry)
+  const [dom, script] = await parseHtml(entry, app.name)
   const ct = document.querySelector(container)
   if(!ct) {
     throw new Error('容器不存在，请查看')
@@ -22,7 +22,12 @@ export const loadHtml = async (app) => {
   return app
 }
 
-export const parseHtml = async (entry) => {
+const cache = {} // 根据name来做缓存
+
+export const parseHtml = async (entry, name) => {
+  if(cache[name]) {
+    return cache[name]
+  }
   const html = await fetchResource(entry)
   // console.log(html,'--------')
   let allScripts = []
@@ -32,6 +37,8 @@ export const parseHtml = async (entry) => {
   const [dom, scriptUrl, script] = await getResources(div, entry)
   const fetchedScripts = await Promise.all(scriptUrl.map(async item => await fetchResource(item)))
   allScripts = script.concat(fetchedScripts)
+  
+  cache[name] = [dom, allScripts]
   return [dom, allScripts]
 }
 
