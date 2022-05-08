@@ -3,6 +3,7 @@ import {currentApp} from "./util";
 import {rewriteRouter} from "./router/rewriteRouter";
 import {setMainLifeCycle} from "./const/mainLifeCycle.js";
 import {Custom} from './customevent'
+import {prefetch} from "./loader/prefetch";
 const custom = new Custom()
 custom.on('test', (data) => {
   console.log(data,'test')
@@ -29,4 +30,7 @@ export const start = () => {
     window.history.pushState('', '', url)
     window.__CURRENT_SUB_APP__ = app.activeRule
   }
+
+  // 预加载
+  prefetch()
 }

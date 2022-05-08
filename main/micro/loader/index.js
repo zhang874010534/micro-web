@@ -37,7 +37,7 @@ export const parseHtml = async (entry, name) => {
   const [dom, scriptUrl, script] = await getResources(div, entry)
   const fetchedScripts = await Promise.all(scriptUrl.map(async item => await fetchResource(item)))
   allScripts = script.concat(fetchedScripts)
-  
+
   cache[name] = [dom, allScripts]
   return [dom, allScripts]
 }

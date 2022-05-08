@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/zhang874010534/micro-web/issues"
   },
-  "homepage": "https://github.com/zhang874010534/micro-web#readme"
+  "homepage": "https://github.com/zhang874010534/micro-web#readme",
+  "dependencies": {
+    "micro-web-npm": "^1.0.1"
+  }
 }
