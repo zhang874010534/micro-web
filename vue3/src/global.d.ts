@@ -6,6 +6,7 @@ declare global {
         __ORIGIN_APP__: any,
         a: any,
         custom: any,
-        store: any
+        store: any,
+        __POWERED_BY_QIANKUN__: any
     }
 }

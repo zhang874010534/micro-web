@@ -12,7 +12,7 @@ const render = () => {
 }
 // render()
 
-if(!window.__MICRO_WEB__) {
+if(!window.__POWERED_BY_QIANKUN__) {
     render()
 }
 
@@ -32,6 +32,14 @@ export const mount = (app: any) => {
     })
     // app.appInfo.header.changeHeader(false)
     // window.custom.emit('test','emitTest')
+    // props.onGlobalStateChange((state, prev) => {
+    //     // state: 变更后的状态; prev 变更前的状态
+    //     console.log(state, prev);
+    // });
+    // props.setGlobalState({
+    //     a: 2,
+    //     b: 3
+    // });
     setMain(app)
     render()
     console.log('渲染成功')

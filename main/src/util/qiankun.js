@@ -1,6 +1,12 @@
-import {registerMicroApps, start,} from 'qiankun'
+import {registerMicroApps, start, initGlobalState} from 'qiankun'
 import {loading} from "../store";
 
+const state = {
+  a: 1,
+  b: 2
+}
+
+initGlobalState(state)
 // const store = createStore()
 //
 // window.store = store
